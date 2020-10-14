@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1009171866132",
+    "firebase_url": "https://storefront-f37a6.firebaseio.com",
+    "project_id": "storefront-f37a6",
+    "storage_bucket": "storefront-f37a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009171866132:android:ee37b01ed8dc99947b7d01",
+        "android_client_info": {
+          "package_name": "com.example.storefrontapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009171866132-amg115n9p2p9ujokqe3000vaslhocspv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmKoqt0I6WfQcOW88rycbglbb2hgIBxCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009171866132-amg115n9p2p9ujokqe3000vaslhocspv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
