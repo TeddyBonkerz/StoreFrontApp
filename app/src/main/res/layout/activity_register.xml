@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:importantForAutofill="no"
         android:text="@string/registration"
+        android:background="@color/design_default_color_background"
         android:fontFamily="monospace"
         android:textColor="#000000"
         android:textSize="28sp"

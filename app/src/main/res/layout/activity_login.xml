@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="StoreFront"
+        android:background="@color/design_default_color_background"
         android:textColor="#000000"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
