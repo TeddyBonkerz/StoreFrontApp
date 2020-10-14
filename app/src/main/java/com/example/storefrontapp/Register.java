@@ -88,7 +88,7 @@ public class Register extends AppCompatActivity {
                         // if successful, show a Toast and go to MainActivity
                         if (task.isSuccessful()){
                             Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), BusinessSetupModel.class));
                         }
 
                         //if not, then show error
