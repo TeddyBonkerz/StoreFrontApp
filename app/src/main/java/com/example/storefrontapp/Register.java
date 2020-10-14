@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
 
+    //create member variables
     EditText mAdminName, mBusinessName, mEmail, mPassword1, mPassword2;
     Button mRegistrationBtn, mLoginBtn;
     FirebaseAuth mAuth;
@@ -27,6 +28,7 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // instantiate the member variables
         mAdminName = findViewById(R.id.adminName);
         mBusinessName = findViewById(R.id.businessName);
         mEmail = findViewById(R.id.email);
@@ -35,21 +37,28 @@ public class Register extends AppCompatActivity {
         mRegistrationBtn = findViewById(R.id.signupButton);
         mLoginBtn = findViewById(R.id.loginButton );
 
+        //create a Firebase instance
         mAuth = FirebaseAuth.getInstance();
 
+
+        //if user is already logged it, redirect user to MainActivity
         if (mAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
 
+        // User Registration
         mRegistrationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // get email, passwords from the input fields
                 String email = mEmail.getText().toString().trim();
                 String password1 = mPassword1.getText().toString().trim();
                 String password2 = mPassword2.getText().toString().trim();
 
+
+                // check whether email and passwords are are valid and properly filled
                 if (email.isEmpty()){
                     mEmail.setError("Enter a valid email address!");
                     return;
@@ -71,13 +80,18 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
+                // Pass the email and password to Firebase to register the user
                 mAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        // if successful, show a Toast and go to MainActivity
                         if (task.isSuccessful()){
                             Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
+
+                        //if not, then show error
                         else{
                             Toast.makeText(Register.this, "Something is wrong! " + task.getException().getMessage()  , Toast.LENGTH_SHORT).show();
                         }
@@ -87,7 +101,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-
+        // take user to LoginActivity
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
