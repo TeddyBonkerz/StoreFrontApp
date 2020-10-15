@@ -87,13 +87,15 @@ public class Register extends AppCompatActivity {
 
                         // if successful, show a Toast and go to MainActivity
                         if (task.isSuccessful()){
-                            Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "User Created Successfully",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
 
                         //if not, then show error
                         else{
-                            Toast.makeText(Register.this, "Something is wrong! " + task.getException().getMessage()  , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "Something is wrong! "
+                                    + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
