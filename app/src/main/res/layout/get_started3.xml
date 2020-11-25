@@ -22,11 +22,14 @@
         app:layout_constraintVertical_bias="0.267" />
 
     <Button
-        android:onClick="switchLayout"
         android:id="@+id/getStartedBtn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:onClick="switchLayout"
         android:text="next"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -42,4 +45,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:onClick="goBack"
+        android:layout_width="75dp"
+        android:layout_height="44dp"
+        android:background="#3F51B5"
+        android:text="back"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
 </androidx.constraintlayout.widget.ConstraintLayout>
