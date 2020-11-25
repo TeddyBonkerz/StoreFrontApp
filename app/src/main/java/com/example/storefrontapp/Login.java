@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
                         // if successful, show a Toast and go to GettingStarted
                         if (task.isSuccessful()){
                             Toast.makeText(Login.this, "Logged In  Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Get_Started.class));
+                            startActivity(new Intent(getApplicationContext(), Home.class));
                         }
 
                         //if not, then show error

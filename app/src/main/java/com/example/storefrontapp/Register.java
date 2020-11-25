@@ -29,8 +29,6 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // instantiate the member variables
-        //mAdminName = findViewById(R.id.adminName);
-        //mBusinessName = findViewById(R.id.businessName);
         mEmail = findViewById(R.id.email);
         mPassword1 = findViewById(R.id.password1);
         mPassword2 = findViewById(R.id.password2);
@@ -43,7 +41,7 @@ public class Register extends AppCompatActivity {
 
         //if user is already logged it, redirect user to GettingStarted
         if (mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), GettingStarted.class));
+            startActivity(new Intent(getApplicationContext(), Get_Started.class));
             finish();
         }
 
@@ -53,8 +51,8 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
 
                 // get email, passwords from the input fields
-                String email = mEmail.getText().toString().trim();
-                String password1 = mPassword1.getText().toString().trim();
+                final String email = mEmail.getText().toString().trim();
+                final String password1 = mPassword1.getText().toString().trim();
                 String password2 = mPassword2.getText().toString().trim();
 
 
@@ -89,7 +87,23 @@ public class Register extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(Register.this, "User Created Successfully",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Get_Started.class));
+
+
+                            mAuth.signInWithEmailAndPassword(email, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                    // if successful, show a Toast and go to GettingStarted
+                                    if (task.isSuccessful()){
+                                        startActivity(new Intent(getApplicationContext(), Get_Started.class));
+                                    }
+
+                                }
+                            });
+
+
+
+                            startActivity(new Intent(getApplicationContext(), Login.class));
                         }
 
                         //if not, then show error

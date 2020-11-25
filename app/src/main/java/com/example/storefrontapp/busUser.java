@@ -4,7 +4,7 @@ package com.example.storefrontapp;
 //Getters and setters for field references.
 
 public class busUser {
-    private String businessName, category, mailingAddress, adminName;
+    private String businessName, category, mailingAddress, adminName, uID;
 
     public busUser() {
     }
@@ -15,6 +15,14 @@ public class busUser {
 
     public void setBusinessName(String businessName) {
         this.businessName = businessName;
+    }
+
+    public String getuID() {
+        return uID;
+    }
+
+    public void setuID(String uID) {
+        this.uID = uID;
     }
 
     public String getCategory() {

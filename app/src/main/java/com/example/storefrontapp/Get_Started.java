@@ -2,6 +2,7 @@ package com.example.storefrontapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,14 +23,19 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     String businessName;
     String mailingAddress;
     String adminName;
+    String uID;
 
+    //member variables
     EditText mBusinessName;
     EditText mMailingAddress;
     EditText mAdminName;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    FirebaseAuth mAuth;
     busUser bUser;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +49,11 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("busUsers");
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        uID = currentUser.getUid();
+//        System.out.println(currentUser.getUid());
 
         switch (view.getId()) {
             case R.id.getStartedBtn1:
@@ -87,7 +100,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
                 bUser.setCategory(category);
                 bUser.setMailingAddress(mailingAddress);
                 bUser.setAdminName(adminName);
-
+                bUser.setuID(uID);
                 reference.child(header).setValue(bUser);
 
                 Toast.makeText(this, "Business Setup is Successful",
@@ -104,11 +117,17 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         category = adapterView.getItemAtPosition(i).toString();
-        System.out.println("🔥"+ category);
+//        System.out.println("🔥"+ category);
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void logout(View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), Login.class));
+        finish();
     }
 }
