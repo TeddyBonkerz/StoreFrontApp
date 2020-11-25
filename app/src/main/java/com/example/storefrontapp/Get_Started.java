@@ -2,6 +2,7 @@ package com.example.storefrontapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Get_Started extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Get_Started extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String category;
 
@@ -35,7 +36,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
             case R.id.getStartedBtn2:
                 mBusinessName = findViewById(R.id.businessName);
                 String businessName = mBusinessName.getText().toString().trim();
-                System.out.println("🔥"+businessName);
+                System.out.println("🔥" + businessName);
 
                 setContentView(R.layout.get_started3);
 
@@ -54,7 +55,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
             case R.id.getStartedBtn4:
                 mMailingAddress = findViewById(R.id.mailingAddressField);
                 String mailingAddress = mMailingAddress.getText().toString().trim();
-                System.out.println("🔥"+mailingAddress);
+                System.out.println("🔥" + mailingAddress);
 
                 setContentView(R.layout.get_started5);
                 break;
@@ -62,12 +63,12 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
             case R.id.getStartedBtn5:
                 mAdminName = findViewById(R.id.adminNameField);
                 String adminName = mAdminName.getText().toString().trim();
-                System.out.println("🔥"+adminName);
+                System.out.println("🔥" + adminName);
 
                 Toast.makeText(this, "Business Setup is Successful",
                         Toast.LENGTH_SHORT).show();
 
-                setContentView(R.layout.activity_home);
+                startActivity(new Intent(getApplicationContext(), Home.class));
                 break;
 
         }
@@ -76,7 +77,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         category = adapterView.getItemAtPosition(i).toString();
-        System.out.println("🔥"+ category);
+        System.out.println("🔥" + category);
     }
 
     @Override
