@@ -32,5 +32,13 @@
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="setup_your_business_profile">Setup your Business Profile</string>
+    <string name="get_started">Get Started</string>
+
+    <string-array name="spinner_category">
+        <item>Retail</item>
+        <item>Electronics</item>
+        <item>Food</item>
+        <item>Pets</item>
+    </string-array>
 
 </resources>

@@ -89,7 +89,7 @@ public class Register extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(Register.this, "User Created Successfully",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), GettingStarted.class));
+                            startActivity(new Intent(getApplicationContext(), Get_Started.class));
                         }
 
                         //if not, then show error
