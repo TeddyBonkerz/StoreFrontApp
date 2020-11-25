@@ -25,21 +25,6 @@
         app:layout_constraintVertical_bias="0.077" />
 
     <EditText
-        android:id="@+id/adminName"
-        android:layout_width="332dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="@string/admin_name"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
-
-    <EditText
         android:id="@+id/email"
         android:layout_width="332dp"
         android:layout_height="48dp"
@@ -83,21 +68,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.638" />
-
-    <EditText
-        android:id="@+id/businessName"
-        android:layout_width="332dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="@string/business_name"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
 
     <Button
         android:id="@+id/signupButton"
