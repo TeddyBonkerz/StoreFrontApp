@@ -49,16 +49,16 @@ public class GettingStarted extends AppCompatActivity {
                 int zip = Integer.parseInt(mPostalCode.getText().toString().trim());
 
                 //Setting variables in busUser class
-                String name = bUser.setfName(mFirstName.getText().toString().trim());
-                bUser.setlName(mLastName.getText().toString().trim());
-                bUser.setStreet(mStreet.getText().toString().trim());
-                bUser.setCity(mCity.getText().toString().trim());
-                bUser.setState(mState.getText().toString().trim());
-                bUser.setZipCode(zip);
-                bUser.setCountry(mCountry.getText().toString().trim());
+//                String name = bUser.setfName(mFirstName.getText().toString().trim());
+//                bUser.setlName(mLastName.getText().toString().trim());
+//                bUser.setStreet(mStreet.getText().toString().trim());
+//                bUser.setCity(mCity.getText().toString().trim());
+//                bUser.setState(mState.getText().toString().trim());
+//                bUser.setZipCode(zip);
+//                bUser.setCountry(mCountry.getText().toString().trim());
 
                 //populating busUsers node in Firebase with above variables organized (temporarily) by owner's first name.
-                reference.child(name).setValue(bUser);
+//                reference.child(name).setValue(bUser);
             }
         });
     }

@@ -10,13 +10,24 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Get_Started extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    String header;
     String category;
+    String businessName;
+    String mailingAddress;
+    String adminName;
 
     EditText mBusinessName;
     EditText mMailingAddress;
     EditText mAdminName;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+    busUser bUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,10 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     }
 
     public void switchLayout(View view) {
+        bUser = new busUser();
+
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("busUsers");
 
         switch (view.getId()) {
             case R.id.getStartedBtn1:
@@ -34,8 +49,10 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
             case R.id.getStartedBtn2:
                 mBusinessName = findViewById(R.id.businessName);
-                String businessName = mBusinessName.getText().toString().trim();
-                System.out.println("🔥"+businessName);
+                businessName = mBusinessName.getText().toString().trim();
+                header = businessName;
+
+//                System.out.println("🔥"+businessName);
 
                 setContentView(R.layout.get_started3);
 
@@ -53,24 +70,35 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
             case R.id.getStartedBtn4:
                 mMailingAddress = findViewById(R.id.mailingAddressField);
-                String mailingAddress = mMailingAddress.getText().toString().trim();
-                System.out.println("🔥"+mailingAddress);
+                mailingAddress = mMailingAddress.getText().toString().trim();
+
+//                System.out.println("🔥"+mailingAddress);
 
                 setContentView(R.layout.get_started5);
                 break;
 
             case R.id.getStartedBtn5:
                 mAdminName = findViewById(R.id.adminNameField);
-                String adminName = mAdminName.getText().toString().trim();
-                System.out.println("🔥"+adminName);
+                adminName = mAdminName.getText().toString().trim();
+
+//                System.out.println("🔥"+adminName);
+
+                bUser.setBusinessName(businessName);
+                bUser.setCategory(category);
+                bUser.setMailingAddress(mailingAddress);
+                bUser.setAdminName(adminName);
+
+                reference.child(header).setValue(bUser);
 
                 Toast.makeText(this, "Business Setup is Successful",
                         Toast.LENGTH_SHORT).show();
 
                 setContentView(R.layout.activity_home);
+
                 break;
 
         }
+
     }
 
     @Override

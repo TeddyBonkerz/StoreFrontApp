@@ -4,65 +4,40 @@ package com.example.storefrontapp;
 //Getters and setters for field references.
 
 public class busUser {
-    private String fName, lName, street, city, state, country;
-    private Integer zipCode;
+    private String businessName, category, mailingAddress, adminName;
 
-    public String getfName() {
-        return fName;
+    public busUser() {
     }
 
-    public String setfName(String fName) {
-        this.fName = fName;
-        return fName;
+    public String getBusinessName() {
+        return businessName;
     }
 
-    public String getlName() {
-        return lName;
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public String getCategory() {
+        return category;
     }
 
-    public String getStreet() {
-        return street;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public String getMailingAddress() {
+        return mailingAddress;
     }
 
-    public String getCity() {
-        return city;
+    public void setMailingAddress(String mailingAddress) {
+        this.mailingAddress = mailingAddress;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getAdminName() {
+        return adminName;
     }
 
-    public String getState() {
-        return state;
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
     }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public Integer getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
-    }
-
-
 }
