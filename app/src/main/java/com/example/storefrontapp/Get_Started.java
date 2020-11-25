@@ -17,7 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Get_Started extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Get_Started extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
 
     String header;
     String category;
@@ -68,6 +69,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
 //                System.out.println("🔥"+businessName);
 
+
                 setContentView(R.layout.get_started3);
 
                 Spinner category_spinner = findViewById(R.id.spinner_category);
@@ -98,7 +100,6 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
                     }
                 });
 
-
                 setContentView(R.layout.get_started5);
                 break;
 
@@ -126,9 +127,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
                 Toast.makeText(this, "Business Setup is Successful",
                         Toast.LENGTH_SHORT).show();
-
-                setContentView(R.layout.activity_home);
-
+                startActivity(new Intent(getApplicationContext(), Home.class));
                 break;
 
         }
@@ -139,6 +138,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         category = adapterView.getItemAtPosition(i).toString();
 //        System.out.println("🔥"+ category);
+
     }
 
     @Override
@@ -146,7 +146,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
     }
 
-    public void logout(View view){
+    public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
@@ -165,6 +165,4 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
                 break;
         }
     }
-
-
 }
