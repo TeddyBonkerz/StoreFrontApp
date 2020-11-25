@@ -62,10 +62,10 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        // if successful, show a Toast and go to MainActivity
+                        // if successful, show a Toast and go to GettingStarted
                         if (task.isSuccessful()){
                             Toast.makeText(Login.this, "Logged In  Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), GettingStarted.class));
                         }
 
                         //if not, then show error

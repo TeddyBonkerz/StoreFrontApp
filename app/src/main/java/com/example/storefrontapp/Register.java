@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Register extends AppCompatActivity {
 
     //create member variables
-    EditText mAdminName, mBusinessName, mEmail, mPassword1, mPassword2;
+    EditText mEmail, mPassword1, mPassword2;
     Button mRegistrationBtn, mLoginBtn;
     FirebaseAuth mAuth;
 
@@ -29,8 +29,8 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // instantiate the member variables
-        mAdminName = findViewById(R.id.adminName);
-        mBusinessName = findViewById(R.id.businessName);
+        //mAdminName = findViewById(R.id.adminName);
+        //mBusinessName = findViewById(R.id.businessName);
         mEmail = findViewById(R.id.email);
         mPassword1 = findViewById(R.id.password1);
         mPassword2 = findViewById(R.id.password2);
@@ -41,9 +41,9 @@ public class Register extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        //if user is already logged it, redirect user to MainActivity
+        //if user is already logged it, redirect user to GettingStarted
         if (mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), GettingStarted.class));
             finish();
         }
 
@@ -85,11 +85,11 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        // if successful, show a Toast and go to MainActivity
+                        // if successful, show a Toast and go to GettingStarted
                         if (task.isSuccessful()){
                             Toast.makeText(Register.this, "User Created Successfully",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Get_Started.class));
                         }
 
                         //if not, then show error
