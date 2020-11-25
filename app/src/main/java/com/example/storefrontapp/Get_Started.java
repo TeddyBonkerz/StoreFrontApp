@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     FirebaseAuth mAuth;
     busUser bUser;
 
-
+    Button backBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,6 +79,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
                 break;
 
             case R.id.getStartedBtn3:
+
                 setContentView(R.layout.get_started4);
                 break;
 
@@ -87,10 +89,29 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
 //                System.out.println("🔥"+mailingAddress);
 
+
+                backBtn = findViewById(R.id.backBtn1);
+                backBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        setContentView(R.layout.get_started3);
+                    }
+                });
+
+
                 setContentView(R.layout.get_started5);
                 break;
 
             case R.id.getStartedBtn5:
+                backBtn = findViewById(R.id.backBtn2);
+                backBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        setContentView(R.layout.get_started4);
+                    }
+                });
+
+
                 mAdminName = findViewById(R.id.adminNameField);
                 adminName = mAdminName.getText().toString().trim();
 
@@ -130,4 +151,20 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
+
+    public void goBack(View view) {
+        switch (view.getId()) {
+            case R.id.backBtn:
+                setContentView(R.layout.get_started2);
+                break;
+            case R.id.backBtn1:
+                setContentView(R.layout.get_started3);
+                break;
+            case R.id.backBtn2:
+                setContentView(R.layout.get_started4);
+                break;
+        }
+    }
+
+
 }
