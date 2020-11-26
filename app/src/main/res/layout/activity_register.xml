@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C0E5EA"
-    tools:context=".Register">
+    tools:context=".setup.Register">
 
     <TextView
         android:id="@+id/registerHeader"
