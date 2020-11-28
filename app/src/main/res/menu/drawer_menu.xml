@@ -29,7 +29,12 @@
 
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_baseline_notifications_none_24"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="Settings" />
     </group>
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_power_settings_new_24"
+        android:title="Logout" />
 </menu>

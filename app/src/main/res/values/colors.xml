@@ -6,4 +6,6 @@
     <color name="textColorPrimary">#ffffff</color>
     <color name="textColorSecondary">#000000</color>
     <color name="headerColor">#F49D9D</color>
+    <color name="menuColor">#BE5EF8</color>
 </resources>
+

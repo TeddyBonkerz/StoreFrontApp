@@ -1,4 +1,4 @@
-package com.example.storefrontapp;
+package com.example.storefrontapp.setup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.storefrontapp.Home;
+import com.example.storefrontapp.Login;
+import com.example.storefrontapp.R;
+import com.example.storefrontapp.busUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -55,7 +59,6 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         uID = currentUser.getUid();
-//        System.out.println(currentUser.getUid());
 
         switch (view.getId()) {
             case R.id.getStartedBtn1:
@@ -66,9 +69,6 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
                 mBusinessName = findViewById(R.id.businessName);
                 businessName = mBusinessName.getText().toString().trim();
                 header = businessName;
-
-//                System.out.println("🔥"+businessName);
-
 
                 setContentView(R.layout.get_started3);
 
@@ -88,9 +88,6 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
             case R.id.getStartedBtn4:
                 mMailingAddress = findViewById(R.id.mailingAddressField);
                 mailingAddress = mMailingAddress.getText().toString().trim();
-
-//                System.out.println("🔥"+mailingAddress);
-
 
                 backBtn = findViewById(R.id.backBtn1);
                 backBtn.setOnClickListener(new View.OnClickListener() {
@@ -112,11 +109,8 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
                     }
                 });
 
-
                 mAdminName = findViewById(R.id.adminNameField);
                 adminName = mAdminName.getText().toString().trim();
-
-//                System.out.println("🔥"+adminName);
 
                 bUser.setBusinessName(businessName);
                 bUser.setCategory(category);
@@ -137,13 +131,10 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         category = adapterView.getItemAtPosition(i).toString();
-//        System.out.println("🔥"+ category);
-
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
     public void logout(View view) {
