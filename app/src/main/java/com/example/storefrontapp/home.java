@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.storefrontapp.navdrawer.account_fragment;
 import com.example.storefrontapp.navdrawer.add_product_fragment;
 import com.example.storefrontapp.navdrawer.home_fragment;
+import com.example.storefrontapp.navdrawer.payment_fragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -62,6 +63,10 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.add_product:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new add_product_fragment()).commit();
+                break;
+            case R.id.payment_details:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new payment_fragment()).commit();
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
