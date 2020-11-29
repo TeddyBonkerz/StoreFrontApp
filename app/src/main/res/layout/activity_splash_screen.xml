@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".splash_screen"
+    android:background="@color/colorPrimary">
+    <!--Add proper image below-->
+
+    <TextView
+        android:id="@+id/store_motto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="212dp"
+        android:text="Motto here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store" />
+
+    <ImageView
+        android:id="@+id/randoicon"
+        android:layout_width="87dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="235dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_baseline_payments_24"
+        app:layout_constraintBottom_toTopOf="@+id/store"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="113dp"
+        android:fontFamily="@font/permanent_marker"
+        android:text="StoreFront"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/store_motto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randoicon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
