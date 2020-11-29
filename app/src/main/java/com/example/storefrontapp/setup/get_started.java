@@ -12,8 +12,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.storefrontapp.Home;
-import com.example.storefrontapp.Login;
+import com.example.storefrontapp.home;
+import com.example.storefrontapp.login;
 import com.example.storefrontapp.R;
 import com.example.storefrontapp.busUser;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Get_Started extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class get_started extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
     String header;
@@ -121,7 +121,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
                 Toast.makeText(this, "Business Setup is Successful",
                         Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), Home.class));
+                startActivity(new Intent(getApplicationContext(), home.class));
                 break;
 
         }
@@ -139,7 +139,7 @@ public class Get_Started extends AppCompatActivity implements AdapterView.OnItem
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), Login.class));
+        startActivity(new Intent(getApplicationContext(), login.class));
         finish();
     }
 

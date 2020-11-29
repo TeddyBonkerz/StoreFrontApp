@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.storefrontapp.R;
 
-public class AccountFragment extends Fragment {
+public class account_fragment extends Fragment {
 
     @Nullable
     @Override

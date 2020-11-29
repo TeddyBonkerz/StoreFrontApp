@@ -18,12 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home" />
-        <activity android:name=".setup.Get_Started" />
-        <activity android:name=".Login">
+        <activity android:name=".home" />
+        <activity android:name=".setup.get_started" />
+        <activity android:name=".login">
 
         </activity>
-        <activity android:name=".setup.Register"></activity>
+        <activity android:name=".setup.register"></activity>
     </application>
 
 </manifest>

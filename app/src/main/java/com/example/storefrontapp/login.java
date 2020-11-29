@@ -10,13 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.storefrontapp.setup.Register;
+import com.example.storefrontapp.setup.register;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity {
+public class login extends AppCompatActivity {
 
     //create member variables
     EditText mEmail, mPassword;
@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         //create a Firebase instance
         mAuth = FirebaseAuth.getInstance();
 
-        // Login User
+        // login User
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,13 +65,13 @@ public class Login extends AppCompatActivity {
 
                         // if successful, show a Toast and go to GettingStarted
                         if (task.isSuccessful()){
-                            Toast.makeText(Login.this, "Logged In  Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), Home.class));
+                            Toast.makeText(login.this, "Logged In  Successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), home.class));
                         }
 
                         //if not, then show error
                         else{
-                            Toast.makeText(Login.this, "Something is wrong! " + task.getException().getMessage()  , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(login.this, "Something is wrong! " + task.getException().getMessage()  , Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -79,11 +79,11 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // take user to Register Activity
+        // take user to register Activity
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Register.class));
+                startActivity(new Intent(getApplicationContext(), register.class));
             }
         });
 
