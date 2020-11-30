@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.storefrontapp.R;
 
-public class AddProductFragment extends Fragment {
+public class add_product_fragment extends Fragment {
 
     @Nullable
     @Override

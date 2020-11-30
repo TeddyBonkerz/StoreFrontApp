@@ -12,13 +12,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.storefrontapp.navdrawer.AccountFragment;
-import com.example.storefrontapp.navdrawer.AddProductFragment;
-import com.example.storefrontapp.navdrawer.HomeFragment;
+import com.example.storefrontapp.navdrawer.account_fragment;
+import com.example.storefrontapp.navdrawer.add_product_fragment;
+import com.example.storefrontapp.navdrawer.home_fragment;
+import com.example.storefrontapp.navdrawer.payment_fragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     private Toolbar toolbar;
@@ -43,7 +44,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         if(savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragment()).commit();
+                    new home_fragment()).commit();
             navigationView.setCheckedItem(R.id.home);
         }
     }
@@ -53,19 +54,23 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         switch (item.getItemId()) {
             case R.id.home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new HomeFragment()).commit();
+                        new home_fragment()).commit();
                 break;
             case R.id.account:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AccountFragment()).commit();
+                        new account_fragment()).commit();
                 break;
-            case R.id.add_product:
+            case R.id.inventory:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AddProductFragment()).commit();
+                        new add_product_fragment()).commit();
+                break;
+            case R.id.payment_details:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new payment_fragment()).commit();
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), login.class));
                 finish();
                 break;
         }

@@ -23,7 +23,7 @@
             android:icon="@drawable/ic_baseline_storage_24"
             android:title="Inventory" />
         <item
-            android:id="@+id/payment"
+            android:id="@+id/payment_details"
             android:icon="@drawable/ic_baseline_payments_24"
             android:title="Payment Methods" />
 

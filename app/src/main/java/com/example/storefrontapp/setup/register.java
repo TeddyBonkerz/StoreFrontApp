@@ -10,14 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.storefrontapp.Login;
+import com.example.storefrontapp.login;
 import com.example.storefrontapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Register extends AppCompatActivity {
+public class register extends AppCompatActivity {
 
     //create member variables
     EditText mEmail, mPassword1, mPassword2;
@@ -43,7 +43,7 @@ public class Register extends AppCompatActivity {
 
         //if user is already logged it, redirect user to GettingStarted
         if (mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), Get_Started.class));
+            startActivity(new Intent(getApplicationContext(), get_started.class));
             finish();
         }
 
@@ -87,7 +87,7 @@ public class Register extends AppCompatActivity {
 
                         // if successful, show a Toast and go to GettingStarted
                         if (task.isSuccessful()){
-                            Toast.makeText(Register.this, "User Created Successfully",
+                            Toast.makeText(register.this, "User Created Successfully",
                                     Toast.LENGTH_SHORT).show();
 
 
@@ -97,7 +97,7 @@ public class Register extends AppCompatActivity {
 
                                     // if successful, show a Toast and go to GettingStarted
                                     if (task.isSuccessful()){
-                                        startActivity(new Intent(getApplicationContext(), Get_Started.class));
+                                        startActivity(new Intent(getApplicationContext(), get_started.class));
                                     }
 
                                 }
@@ -105,12 +105,12 @@ public class Register extends AppCompatActivity {
 
 
 
-                            startActivity(new Intent(getApplicationContext(), Login.class));
+                            startActivity(new Intent(getApplicationContext(), login.class));
                         }
 
                         //if not, then show error
                         else{
-                            Toast.makeText(Register.this, "Something is wrong! "
+                            Toast.makeText(register.this, "Something is wrong! "
                                     + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -123,7 +123,7 @@ public class Register extends AppCompatActivity {
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), login.class));
             }
         });
 
