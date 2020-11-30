@@ -60,7 +60,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new account_fragment()).commit();
                 break;
-            case R.id.add_product:
+            case R.id.inventory:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new add_product_fragment()).commit();
                 break;
