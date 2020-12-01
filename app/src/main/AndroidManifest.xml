@@ -20,10 +20,8 @@
         </activity>
         <activity android:name=".home" />
         <activity android:name=".setup.get_started" />
-        <activity android:name=".login">
-
-        </activity>
-        <activity android:name=".setup.register"></activity>
+        <activity android:name=".login"></activity>
+        <activity android:name=".setup.register" />
 
         <meta-data
             android:name="preloaded_fonts"

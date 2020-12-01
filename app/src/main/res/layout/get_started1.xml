@@ -1,52 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_blue">
+
+    <ImageView
+        android:id="@+id/white_bkg"
+        android:layout_width="413dp"
+        android:layout_height="486dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/round_background" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="239dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:text="PUT YOUR BUSINESS
+        OUT THERE"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bluelogo"
+        android:layout_width="222dp"
+        android:layout_height="230dp"
+        app:layout_constraintBottom_toBottomOf="@+id/white_bkg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.279"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/storefront_logo"
+        android:layout_width="162dp"
+        android:layout_height="37dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/bluelogo"
+        app:layout_constraintEnd_toEndOf="@+id/bluelogo"
+        app:layout_constraintStart_toStartOf="@+id/bluelogo"
+        app:layout_constraintTop_toTopOf="@+id/bluelogo"
+        app:srcCompat="@drawable/login_storefront" />
+
+    <Button
+        android:id="@+id/getStartedBtn1"
+        android:layout_width="287dp"
+        android:layout_height="96dp"
+        android:background="@drawable/rounded_button"
+        android:onClick="switchLayout"
+        android:text="Get Started"
+        android:textColor="#555454"
+        android:textSize="18sp"
+        app:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluelogo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/logoutBtn2"
-        android:layout_width="106dp"
-        android:layout_height="39dp"
-        android:background="#F44D4D"
+        android:layout_width="73dp"
+        android:layout_height="38dp"
+        android:background="#D8D7D8"
         android:onClick="logout"
         android:text="@string/logout"
-        android:textColor="#FFFFFF"
+        android:textColor="#F1F1F1"
+        app:fontFamily="@font/comfortaa_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937" />
+        app:layout_constraintVertical_bias="0.011" />
 
-    <Button
-        android:id="@+id/getStartedBtn1"
-        android:layout_width="209dp"
-        android:layout_height="51dp"
-        android:background="#3F51B5"
-        android:onClick="switchLayout"
-        android:text="Get Started"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="176dp"
-        android:layout_height="140dp"
-        android:text="Put Your Business Out There"
-        android:textColor="#000000"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
 </androidx.constraintlayout.widget.ConstraintLayout>
