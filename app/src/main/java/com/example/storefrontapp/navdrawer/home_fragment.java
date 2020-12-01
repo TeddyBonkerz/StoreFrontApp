@@ -81,9 +81,11 @@ public class home_fragment extends Fragment {
 
         DatabaseReference refInventory = FirebaseDatabase.getInstance().getReference("inventory");
         Query queryInventory = refInventory.orderByKey().equalTo(uID);
+
         queryInventory.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     productName = snapshot.child("productName").getValue(String.class);
                     productDescription = snapshot.child("productDescription").getValue(String.class);
@@ -91,7 +93,18 @@ public class home_fragment extends Fragment {
                     productQuantity = snapshot.child("productQuantity").getValue(String.class);
                     productType = snapshot.child("productType").getValue(String.class);
 
-                    System.out.println("🔥" + productName + ", " + productDescription + ", " + productType);
+                    if(productName == null){
+                        pNameTextView.setText("Nothing has been added to the Inventory yet!");
+                    }
+
+                    if (productName != null){
+                        pNameTextView.setVisibility(View.VISIBLE);
+                        pPriceTextView.setVisibility(View.VISIBLE);
+                        pDescriptionTextView.setVisibility(View.VISIBLE);
+                        pQuantityTextView.setVisibility(View.VISIBLE);
+                        pTypeTextView.setVisibility(View.VISIBLE);
+                    }
+
 
                     pNameTextView.setText("Product: " + productName);
                     pPriceTextView.setText("Price: " + productPrice);

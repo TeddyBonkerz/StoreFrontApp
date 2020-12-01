@@ -73,7 +73,7 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_product, container, false);
 
         mAuth = FirebaseAuth.getInstance();
@@ -124,6 +124,9 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
 
                 reference.child(uID).setValue(inventory);
 
+                Toast.makeText(getActivity(), "Product Added ", Toast.LENGTH_LONG).show();
+
+                inflater.inflate(R.layout.fragment_home, container, false);
 
             }
         });
