@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -18,26 +19,43 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.storefrontapp.InventoryModel;
 import com.example.storefrontapp.R;
-import com.example.storefrontapp.login;
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.File;
 import java.util.UUID;
-
-import javax.xml.transform.Result;
 
 public class add_product_fragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
-
+    String productName;
     String productType;
+    String productPrice;
+    String productQuantity;
+    String productDescription;
+    String uID;
+    String header;
+
+    //member variables
+    EditText mName;
+    EditText mPrice;
+    EditText mDescription;
+    EditText mQuantity;
+    Button addToInventory;
+
+    InventoryModel inventory;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+    FirebaseAuth mAuth;
 
     private ImageView productImg;
     public Uri imageUri;
@@ -48,8 +66,12 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_product, container, false);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        uID = currentUser.getUid();
 
         mFirebaseStorage = FirebaseStorage.getInstance();
         mStorageReference = mFirebaseStorage.getReference();
@@ -62,7 +84,6 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
             }
         });
 
-
         product_type_spinner = view.findViewById(R.id.product_type_spinner);
         ArrayAdapter<CharSequence> adapter1 =  ArrayAdapter.createFromResource(getContext(), R.array.product_type_spinner, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -70,10 +91,47 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
         product_type_spinner.setOnItemSelectedListener(this);
 
 
+        inventory = new InventoryModel();
+
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("inventory");
+
+        mName = view.findViewById(R.id.productName);
+
+        mPrice = view.findViewById(R.id.productPrice);
+
+        mDescription = view.findViewById(R.id.productDescription);
+
+        mQuantity = view.findViewById(R.id.productQuantity);
+
+        addToInventory = view.findViewById(R.id.addToInventoryBtn);
+
+        addToInventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                productName = mName.getText().toString().trim();
+                productDescription = mDescription.getText().toString().trim();
+                productQuantity = mQuantity.getText().toString().trim();
+                productPrice = mPrice.getText().toString().trim();
+
+                inventory.setProductName(productName);
+                inventory.setProductDescription(productDescription);
+                inventory.setProductType(productType);
+                inventory.setProductPrice(productPrice);
+                inventory.setProductQuantity(productQuantity);
+
+
+                reference.child(uID).setValue(inventory);
+
+//                System.out.println(productName + ", " + productDescription + ", " + productType
+//                        + ", " + productPrice + ", " + productQuantity);
+
+
+            }
+        });
+
         return view;
     }
-
-
 
 
     private void choosePicture() {
