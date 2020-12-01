@@ -27,6 +27,8 @@ public class home_fragment extends Fragment {
     String adminName;
     String category;
 
+    String productName, productDescription, productPrice, productQuantity, productType;
+
     TextView homeHeader1, homeHeader2, homeHeader3;
 
     FirebaseDatabase rootNode;
@@ -46,6 +48,12 @@ public class home_fragment extends Fragment {
         homeHeader2 = view.findViewById(R.id.homeHeader2);
         homeHeader3 = view.findViewById(R.id.homeHeader3);
 
+        final TextView pDescriptionTextView = view.findViewById(R.id.pDescriptionTextView);
+        final TextView pPriceTextView = view.findViewById(R.id.pPriceTextView);
+        final TextView pNameTextView = view.findViewById(R.id.pNameTextView);
+        final TextView pQuantityTextView = view.findViewById(R.id.pQuantityTextView);
+        final TextView pTypeTextView = view.findViewById(R.id.pTypeTextView);
+
 
         // Read Data from Firebase
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("busUsers");
@@ -62,6 +70,35 @@ public class home_fragment extends Fragment {
                     homeHeader1.setText(businessName);
                     homeHeader2.setText(adminName);
                     homeHeader3.setText(category);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        DatabaseReference refInventory = FirebaseDatabase.getInstance().getReference("inventory");
+        Query queryInventory = refInventory.orderByKey().equalTo(uID);
+        queryInventory.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    productName = snapshot.child("productName").getValue(String.class);
+                    productDescription = snapshot.child("productDescription").getValue(String.class);
+                    productPrice = snapshot.child("productPrice").getValue(String.class);
+                    productQuantity = snapshot.child("productQuantity").getValue(String.class);
+                    productType = snapshot.child("productType").getValue(String.class);
+
+                    System.out.println("🔥" + productName + ", " + productDescription + ", " + productType);
+
+                    pNameTextView.setText("Product: " + productName);
+                    pPriceTextView.setText("Price: " + productPrice);
+                    pDescriptionTextView.setText("Description: " + productDescription);
+                    pQuantityTextView.setText("Quantity left: " + productQuantity);
+                    pTypeTextView.setText("Type: " + productType);
+
                 }
             }
 

@@ -5,7 +5,7 @@
 
     <TextView
         android:id="@+id/homeHeader1"
-        android:layout_width="248dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -47,4 +47,59 @@
         android:text="Category"
         android:textColor="#0B0B0B"
         android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/pDescriptionTextView"
+        android:layout_width="235dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="351dp"
+        android:text="TextView"
+        android:textColor="#020202"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/pPriceTextView"
+        android:layout_width="235dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="409dp"
+        android:text="TextView"
+        android:textColor="#020202"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/pNameTextView"
+        android:layout_width="235dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="287dp"
+        android:text="TextView"
+        android:textColor="#020202"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/pQuantityTextView"
+        android:layout_width="235dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="520dp"
+        android:text="TextView"
+        android:textColor="#020202"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/pTypeTextView"
+        android:layout_width="235dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="461dp"
+        android:text="TextView"
+        android:textColor="#020202"
+        android:textSize="24sp" />
 </RelativeLayout>
