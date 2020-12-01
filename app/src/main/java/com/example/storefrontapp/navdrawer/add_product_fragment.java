@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,12 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -43,6 +48,8 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
     String productDescription;
     String uID;
     String header;
+
+    String businessName;
 
     //member variables
     EditText mName;
@@ -90,20 +97,15 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
         product_type_spinner.setAdapter(adapter1);
         product_type_spinner.setOnItemSelectedListener(this);
 
-
         inventory = new InventoryModel();
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("inventory");
 
         mName = view.findViewById(R.id.productName);
-
         mPrice = view.findViewById(R.id.productPrice);
-
         mDescription = view.findViewById(R.id.productDescription);
-
         mQuantity = view.findViewById(R.id.productQuantity);
-
         addToInventory = view.findViewById(R.id.addToInventoryBtn);
 
         addToInventory.setOnClickListener(new View.OnClickListener() {
@@ -120,13 +122,32 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
                 inventory.setProductPrice(productPrice);
                 inventory.setProductQuantity(productQuantity);
 
-
                 reference.child(uID).setValue(inventory);
 
-//                System.out.println(productName + ", " + productDescription + ", " + productType
-//                        + ", " + productPrice + ", " + productQuantity);
 
+            }
+        });
 
+        // Reading Data From the Firebase Database
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("busUsers");
+        Query query = ref.orderByChild("uID").equalTo(uID);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    businessName = snapshot.child("businessName").getValue(String.class);
+
+//                    Log.i("DB", snapshot.getKey());
+//                    Log.i("DB", snapshot.child("adminName").getValue(String.class));
+//                    Log.i("DB", snapshot.child("businessName").getValue(String.class));
+//                    Log.i("DB", snapshot.child("category").getValue(String.class));
+//                    Log.i("DB", snapshot.child("mailingAddress").getValue(String.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                throw databaseError.toException();
             }
         });
 
@@ -159,7 +180,7 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
 
         final String randKey = UUID.randomUUID().toString();
 
-        StorageReference riversRef = mStorageReference.child("productImages/" + randKey);
+        StorageReference riversRef = mStorageReference.child("productImages/" + businessName + "/" + randKey);
 
         riversRef.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
