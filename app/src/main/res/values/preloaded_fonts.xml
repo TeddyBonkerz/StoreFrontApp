@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/comfortaa</item>
+        <item>@font/comfortaa_bold</item>
+        <item>@font/covered_by_your_grace</item>
+        <item>@font/krona_one</item>
+        <item>@font/roboto_medium</item>
+    </array>
+</resources>

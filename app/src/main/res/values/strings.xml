@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StorefrontSkeleton</string>
+
+    <string-array name="categories">
+        <item>Retail</item>
+        <item>Food</item>
+        <item>Miscellaneous</item>
+    </string-array>
+</resources>

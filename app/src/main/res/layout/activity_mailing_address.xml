@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_blue"
+    tools:context=".mailingAddress">
+
+    <ImageView
+        android:id="@+id/white_bkg"
+        android:layout_width="413dp"
+        android:layout_height="486dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/round_background" />
+
+    <TextView
+        android:id="@+id/addressHeader"
+        android:layout_width="238dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:text="WHERE ARE YOU?"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/white_bkg" />
+
+    <TextView
+        android:id="@+id/subheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are almost ready to launch"
+        android:textColor="#5E5E5E"
+        android:textSize="14sp"
+        app:fontFamily="@font/comfortaa"
+        app:layout_constraintBottom_toTopOf="@+id/addressPic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressHeader"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/addressPic"
+        android:layout_width="351dp"
+        android:layout_height="283dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/white_bkg"
+        app:srcCompat="@drawable/mailingaddresspic" />
+
+    <EditText
+        android:id="@+id/mailingAddress"
+        android:layout_width="305dp"
+        android:layout_height="111dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/textshadow"
+        android:hint="Enter Mailing Address"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressPic"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <ImageButton
+        android:id="@+id/forwardBtnToInventory"
+        android:layout_width="42dp"
+        android:layout_height="44dp"
+        android:background="#0000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/mailingAddress"
+        app:layout_constraintEnd_toEndOf="@+id/mailingAddress"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="@+id/mailingAddress"
+        app:layout_constraintTop_toTopOf="@+id/mailingAddress"
+        app:layout_constraintVertical_bias="0.462"
+        app:srcCompat="@drawable/forwardbtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
