@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.storefrontapp.navdrawer.account_fragment;
 import com.example.storefrontapp.navdrawer.add_product_fragment;
@@ -18,6 +19,13 @@ import com.example.storefrontapp.navdrawer.home_fragment;
 import com.example.storefrontapp.navdrawer.payment_fragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,10 +33,15 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
     private Toolbar toolbar;
     private NavigationView navigationView;
 
+    TextView welcomeTitle;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        welcomeTitle = findViewById(R.id.welcomeTitle);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -47,6 +60,9 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                     new home_fragment()).commit();
             navigationView.setCheckedItem(R.id.home);
         }
+
+
+
     }
 
     @Override
