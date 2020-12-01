@@ -16,4 +16,7 @@
         <item name="itemBackground">?attr/drawableNavigationItemBackground</item>
     </style>
 
+    <color name="background_blue">#4BAEE9</color>
+    <color name="btColor">#FFFFFF</color>
+
 </resources>
