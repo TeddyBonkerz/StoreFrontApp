@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorNavigationItem">@color/menu_item_color</item>
+        <item name="colorNavigationItem">#FFFFFF</item>
         <item name="colorNavigationItemSelected">@color/textColorPrimary</item>
         <item name="drawableNavigationItemBackground">@drawable/menu_background_color</item>
     </style>
