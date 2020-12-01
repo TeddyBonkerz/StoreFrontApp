@@ -4,9 +4,47 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/homeHeader1"
+        android:layout_width="248dp"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="59dp"
+        android:text="Bus Name"
+        android:textColor="#0B0B0B"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/homeHeader2"
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="132dp"
+        android:text="Admin Name"
+        android:textColor="#0B0B0B"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/homeHeader3"
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="204dp"
+        android:text="Category"
+        android:textColor="#0B0B0B"
+        android:textSize="36sp" />
 </RelativeLayout>
