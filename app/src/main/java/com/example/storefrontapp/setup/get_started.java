@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.storefrontapp.home;
 import com.example.storefrontapp.login;
 import com.example.storefrontapp.R;
-import com.example.storefrontapp.busUser;
+import com.example.storefrontapp.UserModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +39,7 @@ public class get_started extends AppCompatActivity implements AdapterView.OnItem
     FirebaseDatabase rootNode;
     DatabaseReference reference;
     FirebaseAuth mAuth;
-    busUser bUser;
+    UserModel bUser;
 
     Button backBtn;
 
@@ -51,7 +51,7 @@ public class get_started extends AppCompatActivity implements AdapterView.OnItem
     }
 
     public void switchLayout(View view) {
-        bUser = new busUser();
+        bUser = new UserModel();
 
         rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("busUsers");
@@ -139,7 +139,7 @@ public class get_started extends AppCompatActivity implements AdapterView.OnItem
 
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), login.class));
+        startActivity(new Intent(getApplicationContext(), home.class));
         finish();
     }
 
