@@ -137,12 +137,6 @@ public class get_started extends AppCompatActivity implements AdapterView.OnItem
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), home.class));
-        finish();
-    }
-
     public void goBack(View view) {
         switch (view.getId()) {
             case R.id.backBtn:

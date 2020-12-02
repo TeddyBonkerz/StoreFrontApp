@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.storefrontapp.home;
 import com.example.storefrontapp.login;
 import com.example.storefrontapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,10 +43,10 @@ public class register extends AppCompatActivity {
 
 
         //if user is already logged it, redirect user to GettingStarted
-        if (mAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), get_started.class));
-            finish();
-        }
+        //if (mAuth.getCurrentUser() != null){
+            //startActivity(new Intent(getApplicationContext(), home.class));
+            //finish();
+       // }
 
         // User Registration
         mRegistrationBtn.setOnClickListener(new View.OnClickListener() {
