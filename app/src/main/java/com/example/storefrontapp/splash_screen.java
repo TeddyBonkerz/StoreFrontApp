@@ -10,6 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.example.storefrontapp.setup.register;
+
 public class splash_screen extends AppCompatActivity {
 
     private static int SPLASH_SCREEN = 3000;
@@ -37,7 +39,7 @@ public class splash_screen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(splash_screen.this, login.class);
+                Intent intent = new Intent(splash_screen.this, register.class);
                 startActivity(intent);
                 finish();
             }
