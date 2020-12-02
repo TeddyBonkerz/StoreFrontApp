@@ -32,8 +32,10 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private NavigationView navigationView;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
 
-    TextView welcomeTitle;
+    TextView userText;
 
 
     @Override
@@ -41,7 +43,6 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        welcomeTitle = findViewById(R.id.welcomeTitle);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -49,6 +50,11 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        //userText = findViewById(R.id.welcomeUser);
+        //userText.setText(currentUser.getDisplayName());
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);

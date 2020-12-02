@@ -3,10 +3,10 @@ package com.example.storefrontapp;
 //This is a class to help us insert data from Business Profile Setup page into our Firebase DB.
 //Getters and setters for field references.
 
-public class busUser {
+public class UserModel {
     private String businessName, category, mailingAddress, adminName, uID;
 
-    public busUser() {
+    public UserModel() {
     }
 
     public String getBusinessName() {
