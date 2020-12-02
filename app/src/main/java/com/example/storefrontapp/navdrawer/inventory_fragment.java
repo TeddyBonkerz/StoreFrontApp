@@ -44,7 +44,6 @@ public class inventory_fragment extends Fragment {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         uID = currentUser.getUid();
 
-
         final TextView pDescriptionTextView = view.findViewById(R.id.pDescriptionTextView);
         final TextView pPriceTextView = view.findViewById(R.id.pPriceTextView);
         final TextView pNameTextView = view.findViewById(R.id.pNameTextView);
@@ -52,7 +51,7 @@ public class inventory_fragment extends Fragment {
         final TextView pTypeTextView = view.findViewById(R.id.pTypeTextView);
 
         DatabaseReference refInventory = FirebaseDatabase.getInstance().getReference("inventory");
-        Query queryInventory = refInventory.orderByKey().equalTo(uID);
+        Query queryInventory = refInventory.orderByChild("businessId").equalTo(uID);
 
         queryInventory.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

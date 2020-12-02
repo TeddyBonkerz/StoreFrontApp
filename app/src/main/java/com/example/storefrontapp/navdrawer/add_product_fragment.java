@@ -81,6 +81,8 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
         FirebaseUser currentUser = mAuth.getCurrentUser();
         uID = currentUser.getUid();
 
+        final String inventoryKey = UUID.randomUUID().toString();
+
         mFirebaseStorage = FirebaseStorage.getInstance();
         mStorageReference = mFirebaseStorage.getReference();
 
@@ -122,12 +124,12 @@ public class add_product_fragment extends Fragment implements AdapterView.OnItem
                 inventory.setProductType(productType);
                 inventory.setProductPrice(productPrice);
                 inventory.setProductQuantity(productQuantity);
+                inventory.setBusinessId(uID);
 
-                reference.child(uID).setValue(inventory);
+                reference.child(inventoryKey).setValue(inventory);
 
                 Toast.makeText(getActivity(), "Product Added ", Toast.LENGTH_LONG).show();
 
-                inflater.inflate(R.layout.fragment_home, container, false);
 
             }
         });
