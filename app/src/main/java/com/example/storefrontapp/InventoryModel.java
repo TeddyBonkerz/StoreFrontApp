@@ -2,9 +2,17 @@ package com.example.storefrontapp;
 
 public class InventoryModel {
 
-    private String productName, productType, productPrice, productQuantity, productDescription;
+    private String productName, productType, productPrice, productQuantity, productDescription, businessId;
 
     public InventoryModel() {
+    }
+
+    public String getBusinessId() {
+        return businessId;
+    }
+
+    public void setBusinessId(String businessId) {
+        this.businessId = businessId;
     }
 
     public String getProductName() {
