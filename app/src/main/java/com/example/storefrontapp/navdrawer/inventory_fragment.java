@@ -27,15 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class inventory_fragment extends Fragment {
 
     String uID;
-    String businessName;
-    String adminName;
-    String category;
 
-    String productName, productDescription, productPrice, productQuantity, productType;
-
-    //Firebase variables
-    FirebaseDatabase rootNode;
-    DatabaseReference reference;
     FirebaseAuth mAuth;
 
 
@@ -53,12 +45,6 @@ public class inventory_fragment extends Fragment {
         uID = currentUser.getUid();
 
         lv = view.findViewById(R.id.listView);
-
-//        final TextView pDescriptionTextView = view.findViewById(R.id.pDescriptionTextView);
-//        final TextView pPriceTextView = view.findViewById(R.id.pPriceTextView);
-//        final TextView pNameTextView = view.findViewById(R.id.pNameTextView);
-//        final TextView pQuantityTextView = view.findViewById(R.id.pQuantityTextView);
-//        final TextView pTypeTextView = view.findViewById(R.id.pTypeTextView);
 
         DatabaseReference refInventory = FirebaseDatabase.getInstance().getReference("inventory");
         Query queryInventory = refInventory.orderByChild("businessId").equalTo(uID);
@@ -92,47 +78,6 @@ public class inventory_fragment extends Fragment {
         };
 
         lv.setAdapter(adapter);
-
-
-//        queryInventory.addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-//
-//                for(DataSnapshot snapshot : datasnapshot.getChildren()){
-//                    productName = snapshot.child("productName").getValue(String.class);
-//                    productDescription = snapshot.child("productDescription").getValue(String.class);
-//                    productPrice = snapshot.child("productPrice").getValue(String.class);
-//                    productQuantity = snapshot.child("productQuantity").getValue(String.class);
-//                    productType = snapshot.child("productType").getValue(String.class);
-//
-//                    if(productName == null){
-//                        pNameTextView.setText("Nothing has been added to the Inventory yet!");
-//                    }
-//
-//                    if (productName != null){
-//                        pNameTextView.setVisibility(View.VISIBLE);
-//                        pPriceTextView.setVisibility(View.VISIBLE);
-//                        pDescriptionTextView.setVisibility(View.VISIBLE);
-//                        pQuantityTextView.setVisibility(View.VISIBLE);
-//                        pTypeTextView.setVisibility(View.VISIBLE);
-//                    }
-//
-//
-//                    pNameTextView.setText("Product: " + productName);
-//                    pPriceTextView.setText("Price: " + productPrice);
-//                    pDescriptionTextView.setText("Description: " + productDescription);
-//                    pQuantityTextView.setText("Quantity left: " + productQuantity);
-//                    pTypeTextView.setText("Type: " + productType);
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
 
         return view;
     }
