@@ -20,6 +20,7 @@ import com.example.storefrontapp.navdrawer.account_fragment;
 import com.example.storefrontapp.navdrawer.add_product_fragment;
 import com.example.storefrontapp.navdrawer.home_fragment;
 import com.example.storefrontapp.navdrawer.inventory_fragment;
+import com.example.storefrontapp.navdrawer.notifications_fragment;
 import com.example.storefrontapp.navdrawer.payment_fragment;
 import com.example.storefrontapp.navdrawer.settings_fragment;
 import com.google.android.material.navigation.NavigationView;
@@ -107,6 +108,11 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 getSupportActionBar().setTitle("Settings");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new settings_fragment()).commit();
+                break;
+            case R.id.notifications:
+                getSupportActionBar().setTitle("Notifications🚨");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new notifications_fragment()).commit();
                 break;
             case R.id.logout:
                 startActivity(new Intent(getApplicationContext(), login.class));
