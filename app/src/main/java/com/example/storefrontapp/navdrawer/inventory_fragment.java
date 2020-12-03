@@ -80,8 +80,6 @@ public class inventory_fragment extends Fragment {
 
                 InventoryModel item = (InventoryModel) model;
 
-                System.out.println(item.getProductName() + " 🔥🔥 " + item.getProductPrice());
-
                 pNameTextView.setText("Product: " + item.getProductName());
                 pDescriptionTextView.setText("Description: " + item.getProductDescription());
                 pTypeTextView.setText("Type: " + item.getProductType());
