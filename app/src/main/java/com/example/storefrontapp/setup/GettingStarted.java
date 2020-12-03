@@ -19,7 +19,7 @@
 //
 //    FirebaseDatabase rootNode;
 //    DatabaseReference reference;
-//    busUser bUser;
+//    UserModel bUser;
 //
 //    //private int bID;
 //
@@ -38,7 +38,7 @@
 //        mCountry = findViewById(R.id.country);
 //        mNextBtn = findViewById(R.id.nextButton );
 //
-//        bUser = new busUser();
+//        bUser = new UserModel();
 //
 //        mNextBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -48,7 +48,7 @@
 //
 //                int zip = Integer.parseInt(mPostalCode.getText().toString().trim());
 //
-//                //Setting variables in busUser class
+//                //Setting variables in UserModel class
 ////                String name = bUser.setfName(mFirstName.getText().toString().trim());
 ////                bUser.setlName(mLastName.getText().toString().trim());
 ////                bUser.setStreet(mStreet.getText().toString().trim());
